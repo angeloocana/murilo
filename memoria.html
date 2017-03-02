@@ -1,0 +1,58 @@
+<html>
+	<head>
+		<title>Jogo da super memoria</title>
+		<script>
+
+var imgs = ['cat.jpg', 'dog.jpg', 'sheep.jpg'];
+
+function setCardImg(nCard, img){
+	var card = document.getElementById('card' + nCard);
+	card.src = './imgs/' + img;
+}
+
+function reset(){
+	for(var i = 0; i < 6; i++){
+		setCardImg(i, 'question.jpg');
+	}	
+}
+
+function newGame(){
+	setCardImg(0, imgs[0]);
+	setCardImg(1, imgs[1]);
+	setCardImg(2, imgs[2]);
+	setCardImg(3, imgs[1]);
+	setCardImg(4, imgs[2]);
+	setCardImg(5, imgs[0]);
+
+	setTimeout(reset, 3000);	
+}
+		</script>
+		<style>
+body{
+	background-color:black;
+	color:white;
+}
+
+.card{
+	position:relative;
+	float: left;
+	width:33%;
+	height:auto;
+}
+		</style>
+	</head>
+	<body onload="newGame()">
+		<h1>Jogo da memoria</h1>
+		<nav>
+			<button onclick="newGame()">Novo jogo</button>
+		</nav>
+		<section>
+			<img id="card0" class="card" />
+			<img id="card1" class="card" />
+			<img id="card2" class="card" />
+			<img id="card3" class="card" />
+			<img id="card4" class="card" />
+			<img id="card5" class="card" />
+		</section>
+	</body>
+</html>
